@@ -4,7 +4,7 @@ name: Run tests in simulation
 on:
   push:
     branches:
-      - main
+      - master
 
 # Default to the burger variant of Turtlebot
 env:
