@@ -12,4 +12,7 @@ A self-hosted runner is installed on local machine where [test_sim.yml](.github/
 
 Above testing is repeated whenever push is made to master branch of this repository.
 
+## Reference ##
+This repository is inspired from this blog:     
+https://formant.io/news-and-blog/2022/06/14/development/creating-a-robotics-simulation-pipeline-with-github-actions-and-ros/
 
