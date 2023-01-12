@@ -1,0 +1,38 @@
+name: Run tests in simulation
+
+# Run the tests when we push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+# Default to the burger variant of Turtlebot
+env:
+  TURTLEBOT3_MODEL: burger
+
+jobs:
+  simulation:
+    
+    runs-on: 
+      - self-hosted
+      - linux
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: /home/gaurav/ros-github-actions-tutorial/catkin_ws 
+    
+    steps:
+      # Check out the code
+      - uses: actions/checkout@v3
+
+      - name: Build workspace
+        run: |
+          source /opt/ros/noetic/setup.bash
+          catkin build          
+
+      # Run our ROS test!
+      - name: Run tests
+        run: |
+          source install/setup.bash &&
+          rostest my_turtlebot_sim my_turtlebot_sim.test --text
